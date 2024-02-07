@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.demo.chitchat.widgets.ClickableMotionLayout
+        android:id="@+id/mlBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_24_top"
+        android:paddingTop="@dimen/_12dp"
+        android:paddingBottom="@dimen/_8dp"
+        app:layoutDescription="@xml/activity_main_scene"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View
+            android:id="@+id/viewSelected"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/color_primary"
+            app:layout_constraintBottom_toTopOf="@id/guideLine"
+            app:layout_constraintEnd_toEndOf="@id/btnChats"
+            app:layout_constraintStart_toStartOf="@id/btnChats"
+            app:layout_constraintTop_toBottomOf="@id/btnGroups" />
+
+        <Space
+            android:id="@+id/guideLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnChats"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            app:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnGroups"
+            app:srcCompat="@drawable/ic_chat"
+            app:tint="@color/color_primary" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnGroups"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            app:layout_constraintBottom_toTopOf="@id/viewSelected"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnCalls"
+            app:layout_constraintStart_toEndOf="@id/btnChats"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_group" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnCalls"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            app:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnGroups"
+            app:srcCompat="@drawable/ic_call" />
+    </com.demo.chitchat.widgets.ClickableMotionLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

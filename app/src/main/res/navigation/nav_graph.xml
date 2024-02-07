@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navHost"
+    app:startDestination="@id/yearsFragment">
+
+    <fragment
+        android:id="@+id/yearsFragment"
+        android:name="com.demo.chitchat.ui.fragments.ChatsFragment"
+        android:label="FragmentYears"
+        tools:layout="@layout/fragment_chats">
+        <action
+            android:id="@+id/action_years_to_months"
+            app:destination="@+id/monthsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/monthsFragment"
+        android:name="com.demo.chitchat.ui.fragments.ChatsFragment"
+        android:label="FragmentMonths"
+        tools:layout="@layout/fragment_chats">
+        <action
+            android:id="@+id/action_month_to_week"
+            app:destination="@+id/weekFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+
+        <action
+            android:id="@+id/action_months_to_years"
+            app:destination="@id/yearsFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/yearsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weekFragment"
+        android:name="com.demo.chitchat.ui.fragments.ChatsFragment"
+        android:label="FragmentWeeks"
+        tools:layout="@layout/fragment_chats">
+        <action
+            android:id="@+id/action_week_to_months"
+            app:destination="@+id/monthsFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+
+    </fragment>
+</navigation>

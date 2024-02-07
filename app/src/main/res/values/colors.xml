@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="black_black">#000000</color>
+    <color name="white_white">#FFFFFF</color>
+    <color name="color_primary">#6a4DFF</color>
+    <color name="bottom_bar">#B3E1E1E1</color>
+    <color name="color_selected">#353535</color>
+    <color name="color_unselected">#292929</color>
+
+    <color name="bg_dialog">#efefef</color>
+    <color name="bg_search">#B3E1E1E1</color>
+    <color name="edt_search">#353535</color>
+    <color name="hint_text_color">#707070</color>
+    <color name="divider">#eeeeee</color>
+</resources>

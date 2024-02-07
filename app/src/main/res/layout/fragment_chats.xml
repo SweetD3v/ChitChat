@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBack"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8dp"
+            android:background="?actionBarItemBackground"
+            android:padding="8dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_24dp"
+            android:layout_toEndOf="@id/btnBack"
+            android:fontFamily="@font/gilroy_bold"
+            android:gravity="center_vertical"
+            android:text="@string/messages"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_24dp"
+        android:background="@drawable/bg_rounded_search_8"
+        android:fontFamily="@font/gilroy_medium"
+        android:hint="Search..."
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingHorizontal="@dimen/_16dp"
+        android:paddingVertical="@dimen/_12dp"
+        android:textColor="@color/edt_search"
+        android:textColorHint="@color/hint_text_color"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnSearch"
+        android:layout_width="@dimen/_24dp"
+        android:layout_height="@dimen/_24dp"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:padding="@dimen/_4dp"
+        app:layout_constraintBottom_toBottomOf="@id/edtSearch"
+        app:layout_constraintEnd_toEndOf="@id/edtSearch"
+        app:layout_constraintTop_toTopOf="@id/edtSearch"
+        app:srcCompat="@drawable/ic_search"
+        app:tint="@color/hint_text_color" />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_24dp"
+        android:layout_marginTop="@dimen/_24dp"
+        android:fontFamily="@font/gilroy_medium"
+        android:gravity="center_vertical"
+        android:text="@string/status"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/edtSearch" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_24dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/txtStatus"
+        tools:listitem="@layout/list_item_status" />
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="@dimen/_24dp"
+        android:background="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/rvStatus" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_24dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/viewDivider"
+        tools:listitem="@layout/list_item_chats" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

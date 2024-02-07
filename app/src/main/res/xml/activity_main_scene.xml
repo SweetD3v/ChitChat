@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@id/scene_group_chats"
+        motion:constraintSetStart="@+id/scene_chats"
+
+        motion:duration="250"
+        motion:motionInterpolator="@string/material_motion_easing_accelerated" />
+
+    <ConstraintSet android:id="@+id/scene_chats">
+        <Constraint
+            android:id="@+id/viewSelected"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/color_primary"
+            motion:layout_constraintBottom_toTopOf="@id/guideLine"
+            motion:layout_constraintEnd_toEndOf="@id/btnChats"
+            motion:layout_constraintStart_toStartOf="@id/btnChats"
+            motion:layout_constraintTop_toBottomOf="@id/btnGroups" />
+
+        <Constraint
+            android:id="@+id/guideLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.7" />
+
+        <Constraint
+            android:id="@+id/btnChats"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.1"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/btnGroups"
+            motion:srcCompat="@drawable/ic_chat"
+            motion:tint="@color/color_primary">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_primary" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/btnGroups"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toTopOf="@id/viewSelected"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/btnCalls"
+            motion:layout_constraintStart_toEndOf="@id/btnChats"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:srcCompat="@drawable/ic_group">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_unselected" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/btnCalls"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.9"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/btnGroups"
+            motion:srcCompat="@drawable/ic_call">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_unselected" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/scene_group_chats">
+        <Constraint
+            android:id="@+id/viewSelected"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/color_primary"
+            motion:layout_constraintBottom_toTopOf="@id/guideLine"
+            motion:layout_constraintEnd_toEndOf="@id/btnGroups"
+            motion:layout_constraintStart_toStartOf="@id/btnGroups"
+            motion:layout_constraintTop_toBottomOf="@id/btnGroups" />
+
+        <Constraint
+            android:id="@+id/guideLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.7" />
+
+        <Constraint
+            android:id="@+id/btnChats"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.1"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/btnGroups"
+            motion:srcCompat="@drawable/ic_chat"
+            motion:tint="@color/color_primary">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_unselected" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/btnGroups"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toTopOf="@id/viewSelected"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/btnCalls"
+            motion:layout_constraintStart_toEndOf="@id/btnChats"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:srcCompat="@drawable/ic_group">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_primary" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/btnCalls"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.9"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/btnGroups"
+            motion:srcCompat="@drawable/ic_call">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_unselected" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/scene_calls">
+        <Constraint
+            android:id="@+id/viewSelected"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/color_primary"
+            motion:layout_constraintBottom_toTopOf="@id/guideLine"
+            motion:layout_constraintEnd_toEndOf="@id/btnCalls"
+            motion:layout_constraintStart_toStartOf="@id/btnCalls"
+            motion:layout_constraintTop_toBottomOf="@id/btnGroups" />
+
+        <Constraint
+            android:id="@+id/guideLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.7" />
+
+        <Constraint
+            android:id="@+id/btnChats"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.1"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/btnGroups"
+            motion:srcCompat="@drawable/ic_chat"
+            motion:tint="@color/color_primary">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_unselected" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/btnGroups"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toTopOf="@id/viewSelected"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/btnCalls"
+            motion:layout_constraintStart_toEndOf="@id/btnChats"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:srcCompat="@drawable/ic_group">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_unselected" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/btnCalls"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="@dimen/_8dp"
+            motion:layout_constraintBottom_toBottomOf="@id/btnGroups"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="0.9"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/btnGroups"
+            motion:srcCompat="@drawable/ic_call">
+            <CustomAttribute
+                motion:attributeName="ColorFilter"
+                motion:customColorValue="@color/color_primary" />
+        </Constraint>
+    </ConstraintSet>
+
+</MotionScene>
