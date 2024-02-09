@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "875486558203",
+    "project_id": "android-portfolio-369",
+    "storage_bucket": "android-portfolio-369.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875486558203:android:d58eb2b14153a5179f7d5e",
+        "android_client_info": {
+          "package_name": "com.demo.chitchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875486558203-a6sdsr57svm71qg45lvddu6njq1v3ohm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP4Ymk0M97vD0KjIMPilOljfc4cV8ZxLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875486558203-a6sdsr57svm71qg45lvddu6njq1v3ohm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875486558203:android:54c40cd4cb40f7609f7d5e",
+        "android_client_info": {
+          "package_name": "com.demo.uberclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875486558203-a6sdsr57svm71qg45lvddu6njq1v3ohm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP4Ymk0M97vD0KjIMPilOljfc4cV8ZxLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875486558203-a6sdsr57svm71qg45lvddu6njq1v3ohm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
