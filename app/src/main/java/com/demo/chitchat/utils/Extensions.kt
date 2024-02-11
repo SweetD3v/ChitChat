@@ -28,12 +28,14 @@ import android.view.ViewTreeObserver
 import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import com.demo.chitchat.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.Job
 import java.io.File
@@ -44,6 +46,16 @@ import java.util.Date
 import java.util.Locale
 import kotlin.math.log10
 import kotlin.math.roundToInt
+
+const val TAG = "GGEZ"
+
+fun Context.toast(message: String?) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun ViewGroup.snackbar(message: String?) {
+    Snackbar.make(this, message ?: "", Snackbar.LENGTH_SHORT).show()
+}
 
 fun Context.isOnline(): Boolean {
     val cm = getSystemService(Service.CONNECTIVITY_SERVICE) as ConnectivityManager

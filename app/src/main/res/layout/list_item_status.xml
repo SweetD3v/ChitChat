@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_4dp"
-        android:src="@tools:sample/avatars"
         app:shapeAppearanceOverlay="@style/ShapeAppearance50" />
 
 </FrameLayout>

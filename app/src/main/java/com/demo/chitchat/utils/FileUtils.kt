@@ -61,14 +61,6 @@ fun saveImage(context: Context, bitmap: Bitmap, origFileName: String, faceIdx: S
     return savedImagePath
 }
 
-fun Context.toast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-}
-
-fun ViewGroup.snackbar(message: String) {
-    Snackbar.make(this, message, Snackbar.LENGTH_SHORT).show()
-}
-
 fun Context.getFilenameFromUri(uri: Uri): String {
     return if (uri.scheme == "file") {
         File(uri.toString()).name

@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        darkMode = DARK_MODE.LIGHT
-        darkMode.setDarkMode()
+//        darkMode = DARK_MODE.DARK
+//        darkMode.setDarkMode()
         initBottomBar()
 
         binding.run {

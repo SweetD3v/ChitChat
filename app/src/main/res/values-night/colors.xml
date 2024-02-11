@@ -5,7 +5,8 @@
 
     <color name="black_black">#000000</color>
     <color name="white_white">#FFFFFF</color>
-    <color name="color_primary">#6a4DFF</color>
+    <color name="color_primary">#73309F</color>
+    <color name="color_primary_dark">#41155E</color>
     <color name="bottom_bar">#212121</color>
     <color name="color_selected">#ffffff</color>
     <color name="color_unselected">#FDFDFD</color>
@@ -15,4 +16,7 @@
     <color name="edt_search">#A5A5A5</color>
     <color name="hint_text_color">#5F5F5F</color>
     <color name="divider">#eeeeee</color>
+    <color name="txt_login_title">#73309F</color>
+    <color name="bg_default">#120C15</color>
+    <color name="edt_login">#454545</color>
 </resources>
