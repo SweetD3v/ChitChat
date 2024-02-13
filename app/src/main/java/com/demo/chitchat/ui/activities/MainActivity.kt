@@ -1,11 +1,12 @@
 package com.demo.chitchat.ui.activities
 
+import DARK_MODE
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
 import com.demo.chitchat.R
 import com.demo.chitchat.databinding.ActivityMainBinding
 import com.demo.chitchat.utils.PrefsManager
-import com.demo.chitchat.utils.setDarkMode
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,22 +30,40 @@ class MainActivity : AppCompatActivity() {
         initBottomBar()
 
         binding.run {
-            mlBottomBar.transitionToState(R.id.scene_chats, 0)
+            mBottomBar.transitionToState(R.id.scene_chats, 0)
+
+            btnMore.setOnClickListener {
+                val popupMenu = PopupMenu(this@MainActivity, it)
+                popupMenu.inflate(R.menu.main_menu)
+                popupMenu.setOnMenuItemClickListener { menuItem ->
+                    when (menuItem.itemId) {
+                        R.id.action_newgroup -> {
+
+                        }
+
+                        R.id.action_profile -> {
+
+                        }
+                    }
+                    true
+                }
+                popupMenu.show()
+            }
         }
     }
 
     private fun initBottomBar() {
         binding.run {
             btnChats.setOnClickListener {
-                mlBottomBar.transitionToState(R.id.scene_chats)
+                mBottomBar.transitionToState(R.id.scene_chats)
             }
 
             btnGroups.setOnClickListener {
-                mlBottomBar.transitionToState(R.id.scene_group_chats)
+                mBottomBar.transitionToState(R.id.scene_group_chats)
             }
 
             btnCalls.setOnClickListener {
-                mlBottomBar.transitionToState(R.id.scene_calls)
+                mBottomBar.transitionToState(R.id.scene_calls)
             }
         }
     }
