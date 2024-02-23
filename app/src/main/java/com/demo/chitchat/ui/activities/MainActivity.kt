@@ -1,18 +1,18 @@
 package com.demo.chitchat.ui.activities
 
 import DARK_MODE
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.app.NotificationCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.demo.chitchat.R
+import com.demo.chitchat.adapters.HomePagerAdapter
 import com.demo.chitchat.databinding.ActivityMainBinding
+import com.demo.chitchat.ui.fragments.ChatsFragment
+import com.demo.chitchat.ui.fragments.GroupsFragment
 import com.demo.chitchat.utils.PrefsManager
+import com.demo.chitchat.utils.setDarkMode
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,10 +31,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-//        darkMode = DARK_MODE.DARK
-//        darkMode.setDarkMode()
+        darkMode = DARK_MODE.LIGHT
+        darkMode.setDarkMode()
         initBottomBar()
-        showNotification()
+        setupHomePager()
 
         binding.run {
             mBottomBar.transitionToState(R.id.scene_chats, 0)
@@ -49,7 +49,9 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         R.id.action_profile -> {
-
+                            Intent(this@MainActivity, ProfileActivity::class.java).apply {
+                                startActivity(this)
+                            }
                         }
                     }
                     true
@@ -59,55 +61,41 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showNotification() {
-        val channelId = "my_channel_id"
-        val channelName = "My Channel Name"
-        val importance = NotificationManager.IMPORTANCE_DEFAULT
-
-        val channel = NotificationChannel(channelId, channelName, importance)
-        channel.description = "Description of my notification channel"
-
-// Get the notification manager system service
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-// Create the notification channel
-        notificationManager.createNotificationChannel(channel)
-
-        val notificationId = 123
-
-        val intent = Intent(this, MainActivity::class.java) // Target activity to launch
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK // Ensure app launches properly
-
-        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-        val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle("My Notification Title")
-            .setContentText("This is the notification content")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-// Add other optional elements here
-
-// Build the notification
-        val notification = notificationBuilder.build()
-
-// Show the notification
-        notificationManager.notify(notificationId, notification)
+    private fun setupHomePager() {
+        binding.run {
+            homePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            homePager.isUserInputEnabled = false
+            homePager.adapter =
+                HomePagerAdapter(
+                    this@MainActivity, arrayListOf(
+                        ChatsFragment.newInstance(),
+                        GroupsFragment.newInstance()
+                    )
+                )
+        }
     }
 
     private fun initBottomBar() {
         binding.run {
             btnChats.setOnClickListener {
                 mBottomBar.transitionToState(R.id.scene_chats)
+                mBottomBar.post {
+                    homePager.setCurrentItem(0, true)
+                }
             }
 
             btnGroups.setOnClickListener {
                 mBottomBar.transitionToState(R.id.scene_group_chats)
+                mBottomBar.post {
+                    homePager.setCurrentItem(1, true)
+                }
             }
 
             btnCalls.setOnClickListener {
                 mBottomBar.transitionToState(R.id.scene_calls)
+                mBottomBar.post {
+                    homePager.setCurrentItem(2, true)
+                }
             }
         }
     }

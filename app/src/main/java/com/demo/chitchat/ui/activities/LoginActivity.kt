@@ -117,6 +117,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     override fun onBackPressed() {
-
+        finish()
     }
 }

@@ -5,42 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btnBack"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_8dp"
-            android:background="?actionBarItemBackground"
-            android:padding="8dp"
-            android:visibility="gone"
-            app:srcCompat="@drawable/ic_back" />
-
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_24dp"
-            android:layout_toEndOf="@id/btnBack"
-            android:fontFamily="@font/gilroy_bold"
-            android:gravity="center_vertical"
-            android:text="@string/messages"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-    </RelativeLayout>
-
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edtSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_24dp"
+        android:layout_marginTop="@dimen/_8dp"
         android:background="@drawable/bg_rounded_search_8"
         android:fontFamily="@font/gilroy_medium"
         android:hint="Search..."
@@ -52,7 +22,7 @@
         android:textColor="@color/edt_search"
         android:textColorHint="@color/hint_text_color"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btnSearch"

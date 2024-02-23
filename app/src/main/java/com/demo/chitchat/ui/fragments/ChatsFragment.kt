@@ -16,4 +16,11 @@ class ChatsFragment : BaseFragment<FragmentChatsBinding>() {
 
     override fun onPermissionGranted() {
     }
+
+    companion object {
+        fun newInstance(): ChatsFragment {
+            val fragment = ChatsFragment()
+            return fragment
+        }
+    }
 }

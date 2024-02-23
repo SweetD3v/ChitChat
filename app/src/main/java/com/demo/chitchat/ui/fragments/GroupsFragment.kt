@@ -20,4 +20,11 @@ class GroupsFragment : BaseFragment<FragmentGroupsBinding>() {
 
     override fun onPermissionGranted() {
     }
+
+    companion object {
+        fun newInstance(): GroupsFragment {
+            val fragment = GroupsFragment()
+            return fragment
+        }
+    }
 }
