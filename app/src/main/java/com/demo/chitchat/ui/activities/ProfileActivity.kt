@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import com.bumptech.glide.Glide
 import com.demo.chitchat.databinding.ActivityProfileBinding
+import com.demo.chitchat.ui.fragments.EditProfileSheet
 import com.demo.chitchat.utils.setOnSingleClickListener
+import com.demo.chitchat.utils.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -66,8 +69,32 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>() {
         }
     }
 
-    private fun showEditSheet() {
+    private fun initData() {
+        binding.run {
+            docRef?.get()?.addOnCompleteListener { task ->
+                if (task.result.exists()) {
+                    btnAdd.text = "Edit"
+                    txtName.text = task.result.getString("name")
+                    txtAbout.text = task.result.getString("about")
+                    txtPhone.text = task.result.getString("phone")
+                    val url = task.result.getString("url")
 
+                    if (url?.isNotEmpty() == true) {
+                        Glide.with(this@ProfileActivity).load(url).into(imgProfile)
+                    }
+                } else {
+                    toast("No Profile")
+                }
+            }
+        }
+    }
+
+    private fun showEditSheet() {
+        val editSheet = EditProfileSheet.newInstance(db, docRef)
+        val bundle = Bundle()
+        bundle.putBoolean("edit", true)
+        editSheet.arguments = bundle
+        editSheet.show(supportFragmentManager, "ProfileActivity")
     }
 
     private fun showNameSheet() {
