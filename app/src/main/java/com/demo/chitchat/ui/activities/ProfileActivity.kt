@@ -41,6 +41,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>() {
         setContentView(binding.root)
 
         val user = FirebaseAuth.getInstance().currentUser
+        initData()
 
         binding.run {
             user?.let {
@@ -98,6 +99,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding>() {
     }
 
     private fun showNameSheet() {
-
+        val editSheet = EditProfileSheet.newInstance(db, docRef)
+        editSheet.show(supportFragmentManager, "ProfileActivity")
     }
 }

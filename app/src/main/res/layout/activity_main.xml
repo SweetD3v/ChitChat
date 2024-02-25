@@ -45,6 +45,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/_8dp"
+            android:background="?actionBarItemBackground"
             android:padding="@dimen/_8dp"
             app:srcCompat="@drawable/ic_more" />
     </RelativeLayout>
