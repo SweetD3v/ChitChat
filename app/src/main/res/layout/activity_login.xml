@@ -85,7 +85,7 @@
                 android:fontFamily="@font/gilroy_medium"
                 android:gravity="center_vertical"
                 android:hint="Enter phone number"
-                android:imeOptions="actionSearch"
+                android:imeOptions="actionDone"
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_16dp"
